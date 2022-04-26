@@ -131,9 +131,11 @@ public class DefaultCore implements Core {
         MDC.put(RootContext.MDC_KEY_XID, session.getXid());
         session.addSessionLifecycleListener(SessionHolder.getRootSessionManager());
 
+        // 向global_table中插入一条记录
         session.begin();
 
         // transaction start event
+        // 向服务端发送消息,开启一个事物
         eventBus.post(new GlobalTransactionEvent(session.getTransactionId(), GlobalTransactionEvent.ROLE_TC,
             session.getTransactionName(), applicationId, transactionServiceGroup, session.getBeginTime(), null, session.getStatus()));
 

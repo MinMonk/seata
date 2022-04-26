@@ -80,6 +80,8 @@ public abstract class AbstractCore implements Core {
             BranchSession branchSession = SessionHelper.newBranchByGlobal(globalSession, branchType, resourceId,
                     applicationData, lockKeys, clientId);
             MDC.put(RootContext.MDC_KEY_BRANCH_ID, String.valueOf(branchSession.getBranchId()));
+
+            // 锁住分支会话中的数据
             branchSessionLock(globalSession, branchSession);
             try {
                 globalSession.addBranch(branchSession);
