@@ -45,6 +45,7 @@ public abstract class AbstractLockManager implements LockManager {
         if (branchSession == null) {
             throw new IllegalArgumentException("branchSession can't be null for memory/file locker.");
         }
+        // 这个lockKey是从客户端传过来的
         String lockKey = branchSession.getLockKey();
         if (StringUtils.isNullOrEmpty(lockKey)) {
             // no lock
