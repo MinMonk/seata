@@ -1,0 +1,30 @@
+server:
+  port: 8100
+  servlet:
+    context-path: /api
+spring:
+  application:
+    name: account-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        group: DEFAULT_GROUP
+  devtools:
+    restart:
+      enabled: true
+  datasource:
+    username: monk
+    password: monk
+    url: jdbc:mysql://localhost:3306/account-db
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
