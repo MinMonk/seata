@@ -1,10 +1,12 @@
-service.vgroupMapping.my_test_tx_group=default
+service.vgroupMapping.my_tx_group=default
 service.default.grouplist=127.0.0.1:8091
+service.enableDegrade=false
+service.disableGlobalTransaction=false
 store.mode=db
 store.db.datasource=druid
 store.db.dbType=mysql
-store.db.driverClassName=com.mysql.cj.jdbc.Driver
-store.db.url=jdbc:mysql://127.0.0.1:3306/seata-server?useUnicode=true&rewriteBatchedStatements=true
+store.db.driverClassName=com.mysql.jdbc.Driver
+store.db.url=jdbc:mysql://192.168.31.131:3306/seata_server?useUnicode=true&rewriteBatchedStatements=true
 store.db.user=root
 store.db.password=AAaa1234
 store.db.minConn=5

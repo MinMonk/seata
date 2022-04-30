@@ -18,7 +18,7 @@ public class StoragePo extends BasePo {
     /**
      * 产品id
      */
-    private Long productId;
+    private String productId;
 
     /**
      * 总库存

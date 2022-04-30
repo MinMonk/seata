@@ -6,6 +6,8 @@ import com.monk.common.entity.BasePo;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 /**
  * @author monk
  */
@@ -16,7 +18,14 @@ public class OrderPo extends BasePo {
 
     @TableId
     private Long id;
-    private String orderNo;
+
+    private Long userId;
+
     private String productId;
-    private Integer status;
+
+    private Integer count;
+
+    private BigDecimal money;
+
+    private Integer status; //订单状态：0：创建中；1：已完结
 }

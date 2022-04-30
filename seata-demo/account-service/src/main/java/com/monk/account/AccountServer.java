@@ -1,7 +1,9 @@
 package com.monk.account;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * Hello world!
@@ -9,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author monk
  */
 @SpringBootApplication
+@EnableDiscoveryClient
+@MapperScan("com.monk.account.mapper")
 public class AccountServer
 {
     public static void main( String[] args )

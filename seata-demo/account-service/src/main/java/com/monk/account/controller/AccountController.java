@@ -4,10 +4,9 @@ import com.monk.account.entity.AccountPo;
 import com.monk.account.service.IAccountService;
 import com.monk.common.entity.JsonVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 
 /**
  * @author monk
@@ -17,10 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class AccountController {
 
     @Autowired
-    private IAccountService orderService;
+    private IAccountService accountService;
 
     @PostMapping("/create")
     public JsonVo create(@RequestBody AccountPo order){
-        return new JsonVo().data(orderService.save(order));
+        return new JsonVo().data(accountService.save(order));
+    }
+
+    @GetMapping("/decrease")
+    public JsonVo decrease(@RequestParam("userId") Long userId, @RequestParam("money") BigDecimal money) {
+        return new JsonVo().data(accountService.decrease(userId, money));
     }
 }

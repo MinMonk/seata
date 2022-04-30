@@ -7,4 +7,6 @@ import com.monk.order.entity.OrderPo;
  * @author monk
  */
 public interface IOrderService extends IService<OrderPo> {
+
+    boolean create(OrderPo po);
 }

@@ -17,10 +17,11 @@ DEFAULT CHARSET = utf8 COMMENT ='AT transaction mode undo table';
 -- 订单表,在order-service项目中执行
 CREATE TABLE `t_order`  (
    `id` bigint NOT NULL AUTO_INCREMENT,
-   `order_no` varchar(50) NOT NULL COMMENT '订单编号',
    `product_id` varchar(50) NOT NULL COMMENT '商品ID',
+   `user_id` bigint not null comment '用户ID',
+   `count` int(3) not null comment '数量',
+   `money` decimal(5, 2) not null comment '价格',
    `status` tinyint(1) NOT NULL COMMENT '订单状态',
-   `payment_time` datetime(0) NULL COMMENT '支付时间',
    `valid_flag` tinyint(1) NOT NULL default 1 COMMENT '数据有效性标识',
    `create_user_id` int NULL COMMENT '创建人',
    `create_time` datetime(0) NULL COMMENT '创建时间',
@@ -48,7 +49,7 @@ CREATE TABLE `t_storage`  (
 -- 库存表,在storage-service项目中执行
 CREATE TABLE `t_account`  (
     `id` bigint NOT NULL AUTO_INCREMENT,
-    `userId` bigint NOT NULL COMMENT '用户ID',
+    `user_id` bigint NOT NULL COMMENT '用户ID',
     `total` decimal(5, 2) not null comment '总额度',
     `used` decimal(5, 2) not null comment '已用额度',
     `residue` decimal(5, 2) not null comment '剩余额度',
