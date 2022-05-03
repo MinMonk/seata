@@ -40,7 +40,10 @@ mybatis-plus:
 seata:
   enabled: true
   application-id: order-service
-  tx-service-group: my_tx_group
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
   config:
     type: nacos
     nacos:

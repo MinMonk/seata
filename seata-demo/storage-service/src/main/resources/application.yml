@@ -30,9 +30,12 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/**/*Mapper.xml
 
 seata:
-  tx-service-group: my_tx_group
+  tx-service-group: my_test_tx_group
   application-id: storage-service
   enabled: true
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
   config:
     type: nacos
     nacos:

@@ -8,6 +8,7 @@ import com.monk.account.service.IAccountService;
 import com.monk.common.constant.ErrorCodeEnum;
 import com.monk.common.exception.BusinessException;
 import io.seata.common.util.CollectionUtils;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -34,6 +35,7 @@ public class AccountServiceImpl extends ServiceImpl<AccountMapper, AccountPo> im
     }
 
     @Override
+    // @GlobalTransactional
     public boolean decrease(Long userId, BigDecimal money) {
         AccountPo dbData = queryByUserId(userId);
         if (null == dbData) {

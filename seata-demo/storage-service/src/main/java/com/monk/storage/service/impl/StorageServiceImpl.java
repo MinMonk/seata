@@ -9,6 +9,7 @@ import com.monk.storage.entity.StoragePo;
 import com.monk.storage.mapper.StorageMapper;
 import com.monk.storage.service.IStorageService;
 import io.seata.common.util.CollectionUtils;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -21,6 +22,7 @@ import java.util.List;
 public class StorageServiceImpl extends ServiceImpl<StorageMapper, StoragePo> implements IStorageService {
 
     @Override
+    // @GlobalTransactional
     public boolean decrease(String productId, Integer count) {
 
         final StoragePo dbData = this.queryStorageByProductId(productId);

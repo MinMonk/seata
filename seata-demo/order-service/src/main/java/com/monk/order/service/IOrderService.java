@@ -9,4 +9,6 @@ import com.monk.order.entity.OrderPo;
 public interface IOrderService extends IService<OrderPo> {
 
     boolean create(OrderPo po);
+
+    boolean updateStatuById(Long orderId, Integer statu);
 }

@@ -13,7 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JsonVo<T> {
 
-    private Integer code = 200;
+    public static final Integer SUCCESS_CODE = 200;
+
+    private Integer code = SUCCESS_CODE;
 
     private String message = "success";
 

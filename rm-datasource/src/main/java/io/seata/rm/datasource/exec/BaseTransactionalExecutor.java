@@ -277,6 +277,7 @@ public abstract class BaseTransactionalExecutor<T, S extends Statement> implemen
         ConnectionProxy connectionProxy = statementProxy.getConnectionProxy();
 
         TableRecords lockKeyRecords = sqlRecognizer.getSQLType() == SQLType.DELETE ? beforeImage : afterImage;
+        // lockKeys = "t_order:1"
         String lockKeys = buildLockKey(lockKeyRecords);
         if (null != lockKeys) {
             connectionProxy.appendLockKey(lockKeys);
@@ -387,6 +388,7 @@ public abstract class BaseTransactionalExecutor<T, S extends Statement> implemen
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
+            // SELECT * FROM t_order WHERE (id) in ( (?) )
             ps = statementProxy.getConnection().prepareStatement(sql.toString());
 
             int paramIndex = 1;
