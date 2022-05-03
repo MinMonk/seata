@@ -1,0 +1,27 @@
+server:
+  port: 8084
+seata:
+  enabled: true
+  application-id: business-service
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 127.0.0.1:8091
+  config:
+    type: nacos
+    nacos:
+      serverAddr: localhost
+      group: SEATA_GROUP
+      namespace:
+      userName: "nacos"
+      password: "nacos"
+  registry:
+    type: nacos
+    nacos:
+      cluster: default
+      server-addr: localhost
+      namespace:
+      userName: "nacos"
+      password: "nacos"
