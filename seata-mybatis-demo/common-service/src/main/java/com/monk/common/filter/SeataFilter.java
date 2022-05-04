@@ -29,7 +29,7 @@ import io.seata.core.context.RootContext;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Component;
 
-// @Component
+@Component
 public class SeataFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
